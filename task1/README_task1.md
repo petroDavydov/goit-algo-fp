@@ -76,7 +76,7 @@
 ###### Принт скрін роботи коду завдання № 1
 
 
-![terminal](assets_task2/terminal.png)
+![terminal](assets_task1/terminal.png)
 
 
 ![before_reverse](assets_task1/before_reverse.png)
