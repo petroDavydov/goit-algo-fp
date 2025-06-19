@@ -59,10 +59,7 @@
 - [ELK Stack: що це і як працює](https://diggers-consulting.com/data-engineering/splunk-vs-elastic-stack-elk-how-to-choose)
 
 
-###### Принтскрін роботи рекурсії 5 та 8
-
-
-![Recursion-5](assets_task2/tree_recursion5.png)
+###### Принтскрін роботи рекурсії 8
 
 
 ![Recursion_8](assets_task2/tree_recursion8.png)
