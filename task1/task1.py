@@ -145,13 +145,13 @@ class LinkedList:
 llist1 = LinkedList()
 llist2 = LinkedList()
 
-for value in [5, 15, 10]:
+for value in [15, 10, 5, 1]:
     llist1.insert_at_beginning(value)
 
-for value in [20, 25, 11]:
+for value in [20, 25, 30, 44, 55]:
     llist1.insert_at_end(value)
 
-for value in [23, 18, 2, 38, 0, 43, 90]:
+for value in [23, 18, 2, 38, 0, 43, 90, 124]:
     llist2.insert_at_end(value)
 
 
