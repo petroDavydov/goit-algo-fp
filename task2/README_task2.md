@@ -62,6 +62,10 @@
 ###### Принтскрін роботи рекурсії 8
 
 
-![Recursion_8](assets_task2/tree_recursion8.png)
+![Recursion_8pifagor](assets_task2/tree_recursion8pg.png)
 
+
+
+* Якщо гратися з показниками, можна зробити і таке дерево 🎉
+![Recursion_8(play)](assets_task2/tree_recursion8.png)
 
