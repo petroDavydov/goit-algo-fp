@@ -82,7 +82,7 @@
 ![before_reverse](assets_task1/before_reverse.png)
 
 
-![before_sorting](https://assets_task1/before_sorting.png)
+![before_sorting](assets_task1/before_sorting.png)
 
 
 ![aftetr_reverse](assets_task1/after_reverse.png)
