@@ -76,19 +76,19 @@
 ###### Принт скрін роботи коду завдання № 1
 
 
-![terminal](task1/assets_task2/terminal.png)
+![terminal](assets_task2/terminal.png)
 
 
-![before_reverse]()(task1/assets_task2/before_reverse.png)
+![before_reverse](https://assets_task2/before_reverse.png)
 
 
-![before_sorting](task1/assets_task2/before_sorting.png)
+![before_sorting](https://assets_task2/before_sorting.png)
 
 
-![aftetr_reverse](task1/assets_task2/after_reverse.png)
+![aftetr_reverse](assets_task2/after_reverse.png)
 
 
-![merge_list](task1/assets_task2/merge_list.png)
+![merge_list](assets_task2/merge_list.png)
 
 
 
