@@ -73,51 +73,53 @@
 
 
 
-###### Принт скрін роботи коду завдання № 1
+#### Принт скрін роботи коду завдання № 1
 
 
 ![terminal](assets_task1/terminal.png)
 
 
+
 ![before_reverse](assets_task1/before_reverse.png)
+
 
 
 ![before_sorting](assets_task1/before_sorting.png)
 
 
+
 ![aftetr_reverse](assets_task1/after_reverse.png)
+
 
 
 ![merge_list](assets_task1/merge_list.png)
 
 
 
-######
-
-* Додаткові данні по typing.Optional знайдено по адресу:
+#### Додаткові данні по typing.Optional знайдено по адресу:
 
 https://docs.python.org/uk/3.13/library/typing.html#typing.Optional
 
-"""
+
 typing.Optional
 Optional[X] еквівалентно X | None (або Union[X, None]).
 якщо дозволено явне значення None, використання Optional є доречним,
 незалежно від того, чи є аргумент необов’язковим.
 Наприклад:
 
+```python
 def foo(arg: Optional[int] = None) -> None:
-    ...
-"""
+```
 
-"""
+
 * for python analyser
- if prev and cur:
+
+```python
+if prev and cur:
     prev.next = cur.next
+```
+
 
 https://stackoverflow.com/questions/73005493/why-is-prev-curr-next-necessary-for-an-iterative-solution-of-reverse-link-list
 
 https://leetcode.ca/2016-06-23-206-Reverse-Linked-List/#google_vignette
-
-"""
-######
-
