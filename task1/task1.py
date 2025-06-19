@@ -83,7 +83,7 @@ class LinkedList:
             next_node = temp
         self.head = current
 
-#
+
     def sorted_insert(self, sorted_list, new_node):
         if not sorted_list.head or sorted_list.head.data >= new_node.data:
             new_node.next = sorted_list.head
