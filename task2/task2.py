@@ -10,7 +10,7 @@ init(autoreset=True)
 
 def get_color_for_tree(depth, max_depth):
     hue = depth / max_depth
-    r, g, b = colorsys.hsv_to_rgb(hue, 0, 0)
+    r, g, b = colorsys.hsv_to_rgb(hue, 1, 1)
     return (int(r * 255), int(g * 255), int(b * 255))
 
 # Дерево піфагора з кутами, гілками використовуючи рекурсію
@@ -46,13 +46,13 @@ def draw_tree_of_pifagor(depth):
 
         size = 600 / (depth + 1)
         t = turtle.Turtle()
-        t.speed(5)
+        t.speed(0)
         t.penup()
         t.goto(0, -300)
         t.left(90)
         t.forward(size)
         t.pendown()
-        # t.hideturtle()
+        t.hideturtle()
 
         tree_of_pifagor(t, depth, size, angle=45, max_depth=depth)
         window.mainloop()
