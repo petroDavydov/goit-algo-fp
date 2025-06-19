@@ -79,16 +79,16 @@
 ![terminal](assets_task2/terminal.png)
 
 
-![before_reverse](https://assets_task2/before_reverse.png)
+![before_reverse](assets_task1/before_reverse.png)
 
 
-![before_sorting](https://assets_task2/before_sorting.png)
+![before_sorting](https://assets_task1/before_sorting.png)
 
 
-![aftetr_reverse](assets_task2/after_reverse.png)
+![aftetr_reverse](assets_task1/after_reverse.png)
 
 
-![merge_list](assets_task2/merge_list.png)
+![merge_list](assets_task1/merge_list.png)
 
 
 
