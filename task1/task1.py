@@ -83,7 +83,6 @@ class LinkedList:
             next_node = temp
         self.head = current
 
-
     def sorted_insert(self, sorted_list, new_node):
         if not sorted_list.head or sorted_list.head.data >= new_node.data:
             new_node.next = sorted_list.head
@@ -128,13 +127,13 @@ class LinkedList:
             i += 1
 
         plt.figure(figsize=(1.5 * len(x), 2.5))
-        plt.scatter(x, [0] * len(x), s=800, color="lightgreen",
+        plt.scatter(x, [0.3] * len(x), s=800, color="lightgreen",
                     edgecolors="black", zorder=3)
         for i, label in enumerate(labels):
-            plt.text(x[i], 0, str(label), fontsize=12, ha='center',
+            plt.text(x[i], 0.3, str(label), fontsize=12, ha='center',
                      va='center', color='black', weight='bold')
         for i in range(len(x) - 1):
-            plt.arrow(x[i], 0, 0.8, 0, head_width=0.05,
+            plt.arrow(x[i], 0.3, 0.8, 0, head_width=0.10,
                       head_length=0.1, fc='black', ec='black', zorder=2)
         plt.axis('off')
         plt.title(title)
