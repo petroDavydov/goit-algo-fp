@@ -1,4 +1,4 @@
-from turtle import Terminator
+from turtle import Terminator  # manual
 from tkinter import TclError  # use hint
 import colorsys
 import turtle
@@ -17,7 +17,7 @@ def get_color_for_tree(depth, max_depth):
 
 
 def tree_of_pifagor(t, depth, size, angle, max_depth):
-    if depth <= 0 or size < 1:
+    if depth <= 0 or size < 2:
         return
     t.pencolor(get_color_for_tree(depth, max_depth))
 
@@ -33,7 +33,6 @@ def tree_of_pifagor(t, depth, size, angle, max_depth):
 
     t.pencolor(get_color_for_tree(depth, max_depth))
     t.right(angle)
-    tree_of_pifagor(t, depth - 1, size * 0.8, angle, max_depth)
     t.backward(size * 2)
 
 # Виклик рекурсії та застосування параметрів малювання
@@ -47,9 +46,9 @@ def draw_tree_of_pifagor(depth):
 
         size = 300 / (depth + 1)
         t = turtle.Turtle()
-        t.speed(10)
+        t.speed(5)
         t.penup()
-        t.goto(0, 163)
+        t.goto(0, -150)
         t.left(90)
         t.forward(size)
         t.pendown()
