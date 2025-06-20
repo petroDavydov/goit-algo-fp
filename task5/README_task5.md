@@ -39,4 +39,3 @@
 
 * Завершення програми
 
-![ending_program](assets_task5/ending_program.png)
