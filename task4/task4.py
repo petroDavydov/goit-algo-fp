@@ -1,3 +1,4 @@
+import copy
 import uuid
 import heapq
 from typing import Optional
@@ -5,12 +6,12 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from colorama import Fore, Style, init
 init(autoreset=True)
-import copy
 
 
 class Node:
     def __init__(self, key, color="skyblue"):
         self.left: Optional["Node"] = None  # виправлено для python аналізатора
+        # виправлено для python аналізатора
         # виправлено для python аналізатора
         self.right: Optional["Node"] = None
         self.val = key
@@ -52,9 +53,8 @@ def draw_tree(tree_root):
             node_size=2500, node_color=colors)
     plt.show()
 
+
 # make heap desision
-
-
 def draw_heap(heap_root):
     heap = nx.DiGraph()
     pos = {heap_root.id: (0, 0)}
@@ -80,6 +80,8 @@ def build_binary_heap(heap, i=0):
 
 
 if __name__ == "__main__":
+    print(f"Спочатку виводимо {Fore.RED}Бінарне Дерево{Style.RESET_ALL}, \
+а потім, {Fore.LIGHTGREEN_EX}за вашим вибором, СТВОРЮЄМО ДЕРЕВО З КУПИ!{Style.RESET_ALL} ")
     # Створення дерева
     root = Node(0)
     root.left = Node(4)
@@ -91,26 +93,31 @@ if __name__ == "__main__":
     # Відображення дерева
     draw_tree(root)
 
-    # Вивід для купи з дерева
+    # Вивід та побудова для купи з дерева
     heap_composition = {
         # приклад з великою і малою вагою
         "A": [90, 100, 113, 1, 55, 7, 8, 12345, 44],
-        # середній розмір, інверсії
+        # середній розмір
         "B": [15, 10, 20, 5, 25],
-        # ідеально збалансована купа
+        # збалансована купа
         "C": [1, 2, 3, 4, 5, 6, 7],
-        # зменшення — протестує сортування
-        "E": [99, 87, 65, 43, 21, 10],
-        "F": [5, 17, 3, 22, 9, 50, 1, 2],
+        # зменшення
+        "D": [99, 87, 65, 43, 21, 10],
+        # різнобій
+        "E": [5, 17, 3, 22, 9, 50, 1, 2],
     }
-    print(
-        f"Ми маємо такі набори heap: {Fore.LIGHTBLUE_EX}{heap_composition}{Style.RESET_ALL}")
+
+    print(f"{Fore.LIGHTGREEN_EX}Ми маємо такі набори heap:{Style.RESET_ALL}")
+    for key, value in heap_composition.items():
+        print(
+            f"{Fore.LIGHTBLUE_EX}{key} --> {Fore.LIGHTYELLOW_EX}{value}{Style.RESET_ALL}")
 
     user_input = input(
-        f"{Fore.GREEN}Введіть букву обраної купи: {Style.RESET_ALL}")
+        f"{Fore.LIGHTRED_EX}Введіть букву обраної купи: {Style.RESET_ALL}").strip().upper()
 
     if user_input not in heap_composition:
-        print(f"{Fore.RED} ⚠️ Нажаль обрати можна тільки з набору: ⚠️{Style.RESET_ALL}")
+        print(
+            f"{Fore.RED}Нажаль обрати можна тільки з набору: A, B, C, D, E ⚠️{Style.RESET_ALL}")
     else:
         original_data_save = copy.deepcopy(heap_composition[user_input])
         heapq.heapify(original_data_save)
