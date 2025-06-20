@@ -9,10 +9,10 @@
 ##### Принт скрін роботи програми
 
 
-[first_step](assets_task4/first_step.png)
+![first_step](assets_task4/first_step.png)
 
 
-[second_step](assets_task4/second_step.png)
+![second_step](assets_task4/second_step.png)
 
 
-[third_step](assets_task4/third_step.png)
+![third_step](assets_task4/third_step.png)
