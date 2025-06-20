@@ -8,11 +8,14 @@
 
 ##### Принт скрін роботи програми
 
+##### Перший крок
 
 ![first_step](assets_task4/first_step.png)
 
+##### Другий крок
 
 ![second_step](assets_task4/second_step.png)
 
+##### Третій крок
 
 ![third_step](assets_task4/third_step.png)
