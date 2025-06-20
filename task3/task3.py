@@ -116,7 +116,7 @@ if __name__ == "__main__":
 
     if path:
         print(
-            f"\n{Fore.LIGHTBLUE_EX}Шлях: -> {start_user_input} [👉] {end_user_input}:{Style.RESET_ALL} {' - - > '.join(path)}")
+            f"\n{Fore.LIGHTBLUE_EX}Шлях: -> {start_user_input} [👉] {end_user_input}:{Style.RESET_ALL} {' --> '.join(path)}")
         plot_path(
             path, title=f"Шлях: -> {start_user_input} -->  {end_user_input}")
     else:
