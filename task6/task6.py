@@ -19,14 +19,6 @@ def greedy_algorithm(items, budget):
     return total_calories, total_cost, selected_items
 
 
-def screen_result(title, total_calories, total_cost, selecte_items):
-    print(f"{Fore.LIGHTYELLOW_EX}\nTitle: {title}{Style.RESET_ALL}")
-    for item in selecte_items:
-        print(f"What we have: {item}")
-    print(f"{Fore.RED}General calories: {total_calories} calories")
-    print(f"{Fore.LIGHTBLACK_EX}General cost: {total_cost} money")
-
-
 def dynamic_programming(items, budget):
     # перетворюємо словник у пари
     item_list = list(items.items())
@@ -48,33 +40,67 @@ def dynamic_programming(items, budget):
                 maximum_calories[item_index][current_budget] = max(
                     maximum_calories[item_index - 1][current_budget], maximum_calories[item_index - 1][current_budget - cost] + calories)
 
-    # збираємщ предмети
+    # Відновлення вибраних предметів
     selected_items = []
     current_budget = budget
     total_calories = maximum_calories[numbers_of_items][budget]
     total_cost = 0
 
-    for item_index in range(numbers_of_items,0, -1):
+    for item_index in range(numbers_of_items, 0, -1):
         name, info = item_list[item_index - 1]
         cost, calories = info["cost"], info["calories"]
         if total_calories <= 0:
-            break # виходимо
+            break  # виходимо
         if total_calories == maximum_calories[item_index - 1][current_budget]:
-            continue # не беремо продовжуємо обирати
+            continue  # не беремо продовжуємо обирати
         else:
-            selected_items.append(f"{Fore.BLUE}{name} --> {Fore.LIGHTYELLOW_EX}{cost} money --> {Fore.LIGHTGREEN_EX}{calories} calories{Style.RESET_ALL} 👍")
+            selected_items.append(
+                f"{Fore.BLUE}{name} --> {Fore.LIGHTYELLOW_EX}{cost} money --> {Fore.LIGHTGREEN_EX}{calories} calories{Style.RESET_ALL} 👍")
             total_cost += cost
-            total_calories += calories
-            current_budget -=cost
-    
-    return maximum_calories[numbers_of_items][budget]
+            total_calories -= calories
+            current_budget -= cost
+
+    return maximum_calories[numbers_of_items][budget], total_cost, selected_items
 
 
-items = {
-    "pizza": {"cost": 50, "calories": 300},
-    "hamburger": {"cost": 40, "calories": 250},
-    "hot-dog": {"cost": 30, "calories": 200},
-    "pepsi": {"cost": 10, "calories": 100},
-    "cola": {"cost": 15, "calories": 220},
-    "potato": {"cost": 25, "calories": 350},
-}
+def screen_result(title, total_calories, total_cost, selecte_items):
+    print(f"{Fore.LIGHTYELLOW_EX}\nВикористовуємо {title}{Style.RESET_ALL}")
+    print(f"Що ми обрали з тестового набору:")
+    for item in selecte_items:
+        print(item)
+
+    print(f"{Fore.RED}General calories: {total_calories} calories")
+    print(f"{Fore.LIGHTBLACK_EX}General cost: {total_cost} money")
+
+
+if __name__ == "__main__":
+
+    items = {
+        "pizza": {"cost": 50, "calories": 300},
+        "hamburger": {"cost": 40, "calories": 250},
+        "hot-dog": {"cost": 30, "calories": 200},
+        "pepsi": {"cost": 10, "calories": 100},
+        "cola": {"cost": 15, "calories": 220},
+        "potato": {"cost": 25, "calories": 350},
+    }
+
+    print(f"{Fore.CYAN}Спочатку відпрацьовують тестові дані! {Style.RESET_ALL}")
+    print(f"{Fore.LIGHTWHITE_EX}Тестовий набір:{Style.RESET_ALL}")
+
+    for name, info in items.items():
+        print(
+            f"{name} --> {info['cost']} money --> {info['calories']} calories")
+
+    budget = 100  # стандартний бюджет для тесту
+
+    # greedy_algorithm
+    greedy_calories, greedy_cost, greedy_items = greedy_algorithm(
+        items, budget)
+    screen_result("ЖАДІБНИЙ АЛГОРИТМ", greedy_calories,
+                  greedy_cost, greedy_items)
+
+    # dynamic_programming(dy_ming)
+    dy_ming_calories, dy_ming_cost, dy_ming_items = dynamic_programming(
+        items, budget)
+    screen_result("ДИНАМІЧНЕ ПРОГРАМУВАННЯ", dy_ming_calories,
+                  dy_ming_cost, dy_ming_items)
