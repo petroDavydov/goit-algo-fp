@@ -13,7 +13,7 @@ def greedy_algorithm(items, budget):
     for item, info in sorted_items:
         if total_cost + info["cost"] <= budget:
             selected_items.append(
-                f"{Fore.LIGHTGREEN_EX}{item}: {info['cost']} money, {info['calories']} calories{Style.RESET_ALL}")
+                f"{Fore.LIGHTGREEN_EX}{item}: {info['cost']} money, {info['calories']} calories{Style.RESET_ALL} 👍")
             total_cost += info["cost"]
             total_calories += info["calories"]
     return total_calories, total_cost, selected_items
@@ -84,7 +84,6 @@ if __name__ == "__main__":
         "potato": {"cost": 25, "calories": 350},
     }
 
-    print(f"{Fore.CYAN}Спочатку відпрацьовують тестові дані! {Style.RESET_ALL}")
     print(f"{Fore.LIGHTWHITE_EX}Тестовий набір:{Style.RESET_ALL}")
 
     for name, info in items.items():
