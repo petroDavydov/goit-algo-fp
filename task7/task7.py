@@ -75,7 +75,7 @@ if __name__ == "__main__":
         deviation = monte_carlo_prob - theoretical_prob
         deviation_sign = "+" if deviation >= 0 else "-"
 
-        monte_carlo_str = f"{monte_carlo_prob:.2f}% ({sum_count[s]}/{count_dice_role})"
+        monte_carlo_str = f"{monte_carlo_prob:.2f}%"
         theoretical_str = f"{theoretical_prob:.2f}%"
         deviation_str = f"{deviation_sign}{abs(deviation):.2f}%"
 
