@@ -10,13 +10,14 @@ def greedy_algorithm(items, budget):
     total_calories = 0
     total_cost = 0
 
-
     for item, info in sorted_items:
-        if total_cost + info["cost"] <=budget:
-            selected_items.append(f"{Fore.LIGHTGREEN_EX}{item}: {info['cost']} money, {info['calories']} calories{Style.RESET_ALL}")
-            total_cost+=info["cost"]
-            total_calories+=info["calories"]
-    return total_calories, total_cost,selected_items
+        if total_cost + info["cost"] <= budget:
+            selected_items.append(
+                f"{Fore.LIGHTGREEN_EX}{item}: {info['cost']} money, {info['calories']} calories{Style.RESET_ALL}")
+            total_cost += info["cost"]
+            total_calories += info["calories"]
+    return total_calories, total_cost, selected_items
+
 
 def screen_result(title, total_calories, total_cost, selecte_items):
     print(f"{Fore.LIGHTYELLOW_EX}\nTitle: {title}{Style.RESET_ALL}")
@@ -27,23 +28,46 @@ def screen_result(title, total_calories, total_cost, selecte_items):
 
 
 def dynamic_programming(items, budget):
+    # перетворюємо словник у пари
     item_list = list(items.items())
-    N = len(item_list)
-    dp = [[0] * (budget+ 1) for _ in range(N + 1)]
+    numbers_of_items = len(item_list)
+    # створення таблиці для максимальних калорій при бюджеті
+    maximum_calories = [[0] * (budget + 1)
+                        for _ in range(numbers_of_items + 1)]
 
-    for i in range(1, N + 1):
-        name, info = item_list[i-1]
+    # заповнення таблиці
+    for item_index in range(1, numbers_of_items + 1):
+        name, info = item_list[item_index-1]
         cost, calories = info["cost"], info["calories"]
-        for w in range(budget + 1):
-            if cost > w:
-                dp[i][w] = dp[i - 1][w]  
+        for current_budget in range(budget + 1):
+            if cost > current_budget:
+                # якщо дорого відкидуємо
+                maximum_calories[item_index][current_budget] = maximum_calories[item_index - 1][current_budget]
             else:
-                dp[i][w] = max(dp[i - 1][w], dp[i - 1][w - cost] + calories)
+                # обираємо брати чи ні (максимум)
+                maximum_calories[item_index][current_budget] = max(
+                    maximum_calories[item_index - 1][current_budget], maximum_calories[item_index - 1][current_budget - cost] + calories)
 
-    return dp[N][budget]
+    # збираємщ предмети
+    selected_items = []
+    current_budget = budget
+    total_calories = maximum_calories[numbers_of_items][budget]
+    total_cost = 0
 
-
-  
+    for item_index in range(numbers_of_items,0, -1):
+        name, info = item_list[item_index - 1]
+        cost, calories = info["cost"], info["calories"]
+        if total_calories <= 0:
+            break # виходимо
+        if total_calories == maximum_calories[item_index - 1][current_budget]:
+            continue # не беремо продовжуємо обирати
+        else:
+            selected_items.append(f"{Fore.BLUE}{name} --> {Fore.LIGHTYELLOW_EX}{cost} money --> {Fore.LIGHTGREEN_EX}{calories} calories{Style.RESET_ALL} 👍")
+            total_cost += cost
+            total_calories += calories
+            current_budget -=cost
+    
+    return maximum_calories[numbers_of_items][budget]
 
 
 items = {
@@ -54,5 +78,3 @@ items = {
     "cola": {"cost": 15, "calories": 220},
     "potato": {"cost": 25, "calories": 350},
 }
-
-
